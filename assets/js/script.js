@@ -10,28 +10,32 @@ var questionTitle = document.getElementById("title");
 var quizStop;
 var select;
 var startButton = document.getElementById("start");
-var submitButton = document.getElementById("submit");
+// var submitButton = document.getElementById("submit");
 var timeLeft = 75;
 var timerEl = document.getElementById("timer");
 
 
-// Default timer start
+// Default timer start; Default Timer = 75
 timerEl.innerHTML = "Remaining Time: " + timeLeft;
 
 // Functions library
+
+    // Create a function to count down from 75 seconds. 
         function timer() {
+            // decrement timer by 1
             timeLeft --;
-            console.log(timeLeft);
+            // Display Remaining Time Left
             timerEl.innerHTML = "Remaining Time: " + timeLeft;
+            // Resets timer if timer hits zero before quiz finishes.
             if(timeLeft <=0) {
                 clearInterval(countdown);
                 quizStop();
+            // tell the quiz to proceed to the end of the quiz and display score
             }else if(questions <=0){
-                // tell the quiz to proceed to the end of the quiz and display score
                 document.getElementById("quizFinished");
             }
         }
-
+        // Create a function to start the quiz questions and timer upon clicking the start button
         function quizStart() {
             //start button starts timer
             countdown = setInterval(timer, 1000);
@@ -39,31 +43,31 @@ timerEl.innerHTML = "Remaining Time: " + timeLeft;
             questionsDisplay();
         };
 
-// Create function to allower user to input their answer.
+// Create function to allow user to input their answer.
 function inputAnswer(){
-    choiceOne;
-    choiceTwo; 
-    choiceThree;
-    choiceFour;
     
-};
+    if(choiceOne.clicked==true) {
+    // e = choiceOne.innerHTML = questions[i].choices[0];
+        console.log(choiceOne);          
+    }
+    
+}
+    
+// };
 
 // Create function to check user's answer.
-function checkAnswer(){
-    // if()
+function checkAnswer(e){
+    console.log(e);
 };
-
 // Create function to move on to the next question.
 function nextQuestion(){
 
 };
-
 // Create function to stop the quiz.
 function quizStop() {
 
 
 }
-
 // Write an array for the quiz with each question being a separate object with questions, answer choices (as nested arrays), and correct answer.
 var questions = [
     {
@@ -99,9 +103,7 @@ function questionsDisplay(){
     choiceTwo.innerHTML = questions[i].choices[1];
     choiceThree.innerHTML = questions[i].choices[2];
     choiceFour.innerHTML = questions[i].choices[3];
-
 }
-
 
 // Event Listeners Library
 startButton.addEventListener("click", quizStart);

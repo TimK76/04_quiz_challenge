@@ -10,5 +10,7 @@ https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Build_
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration
 
+https://stackoverflow.com/questions/35667267/addeventlistenerclick-firing-immediately
+
 
 
