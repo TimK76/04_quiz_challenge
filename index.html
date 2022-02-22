@@ -11,74 +11,42 @@
     <header>
         <div id="highScore"><a href="highscores.html">View High Scores</a>
             </div>
-        <div id="timer">Remaining Time:</div>
+        <div id="timer"></div>
     </header>
     <main>
-        <button id="start" type="button">Start Quiz</button>
-        <div id="card" class="questions">
-            <h1 id="title"></h1>
-            <div><!-- make buttons here?-->
-                <button id="choice1"></button>
-                <button id="choice2"></button>
-                <button id="choice3"></button>
-                <button id="choice4"></button>
-            </div>
-            <!-- <button id="sumbit" type="button">Submit</button> -->
-            <!-- <h1>Coding Quiz Challenge</h1>
-            <p>Try to answer the following code-related questions within the time limit. <br> Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-            <button id="start">Start Quiz</button> -->
+        <div id="original-div"> 
+            <h1 id="original-title">Coding Quiz Challenge</h1>
+                <p id="original-message">Try to answer the following code-related questions within the time limit. <br> Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+                </p>
+            <button id="start" type="button">Start Quiz</button>
         </div>
-        <!-- <card id="question1" class="questions">
-            <h1>Commonly used date types DO NOT include:</h1>
-                <ol>
-                    <li class="incorrect">strings</li>
-                    <li class="incorrect">booleans</li>
-                    <li class="correct">alerts</li>
-                    <li class="incorrect">numbers</li>
-                </ol>
-        </card>
-        <card id="question2" class="questions">
-            <h1>Arrays in JavaScript can be used to store _____________. </h1>
-                <ol>
-                    <li class="incorrect">numbers and strings</li>
-                    <li class="incorrect">other arrays</li>
-                    <li class="incorrect">booleans</li>
-                    <li class="correct">all of the above</li>
-                </ol>
-        </card>
-        <card id="question3" class="questions">
-            <h1>String values must be enclosed within _______ when being assigned to variables</h1>
-                <ol>
-                    <li class="incorrect">commas</li>
-                    <li class="incorrect">curly brackets</li>
-                    <li class="correct">quotes</li>
-                    <li class="incorrect">parenthesis</li>
-                </ol>
-        </card>
-        <card id="question4" class="questions">
-            <h1>The condition of an if/else statement is ecnlosed with ___________. </h1>
-                <ol>
-                    <li class="incorrect">quotes</li>
-                    <li class="incorrect">curly brackets</li>
-                    <li class="incorrect">parenthesis</li>
-                    <li class="correct">square brackets</li>
-                </ol>
-        </card>
-        <card id="question5" class="questions">
-            <h1>A very useful tool used during development and debugginf for printing content to the debugger is:</h1>
-                <ol>
-                    <li class="incorrect">JavaScript</li>
-                    <li class="incorrect">terminal/bash</li>
-                    <li class="incorrect">for loops</li>
-                    <li class="correct">console.log</li>
-                </ol>
-        </card>
-        <card>
-            <h1 id="completed">All done!</h1>
-            <h2 id="finalScore">Your final score is </h2>
-            <h2>Enter Initials<textarea name="UserInitials" id="initials" cols="2" rows="1"></textarea></h2>
-        </card> -->
+
+        <div class="questions">
+            <h1 id="questions-title"></h1>
+            <div class="choices">
+                <button class="btn-choices" id="choice1"></button>
+                <button class="btn-choices" id="choice2"></button>
+                <button class="btn-choices" id="choice3"></button>
+                <button class="btn-choices" id="choice4"></button>
+            </div>
+            <div id="answer"></div>
+            <span class="choices-span" hidden="true"></span>
+        </div>
+        
+        <div id="completed" style="display: none;">
+            <h1 >All done!</h1>
+            <h2 id="finalScore"></h2>
+            <form>
+                <label for="intials">Enter Initials:</label>
+                <input type="text" id="initials">
+                <input type="button" value="Submit" id="submit-initials">
+            </form>
+        </div>
     </main>
     <script src="./assets/js/script.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
 </body>
 </html>

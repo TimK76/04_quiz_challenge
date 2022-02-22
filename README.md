@@ -12,5 +12,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteratio
 
 https://stackoverflow.com/questions/35667267/addeventlistenerclick-firing-immediately
 
+https://stackoverflow.com/questions/17351853/onclick-event-fires-before-button-clicked-javascript
+
 
 

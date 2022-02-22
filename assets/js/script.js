@@ -1,13 +1,20 @@
 // Global Variables Library
+var answer = document.getElementById("answer");
+var btnChoices = document.getElementsByClassName("btn-choices");
 var choiceOne = document.getElementById("choice1");
 var choiceTwo = document.getElementById("choice2"); 
 var choiceThree = document.getElementById("choice3");
 var choiceFour = document.getElementById("choice4");
 var countdown;
 var correct;
+var highscores;
 var i = 0;
-var questionTitle = document.getElementById("title");
+var originalDiv = document.getElementById("original-div")
+var originalMessage = document.getElementById("original-title");
+var originalTitle = document.getElementById("original-message");
+var questionsTitle = document.getElementById("questions-title");
 var quizStop;
+var score;
 var select;
 var startButton = document.getElementById("start");
 // var submitButton = document.getElementById("submit");
@@ -35,29 +42,35 @@ timerEl.innerHTML = "Remaining Time: " + timeLeft;
                 document.getElementById("quizFinished");
             }
         }
-        // Create a function to start the quiz questions and timer upon clicking the start button
+    // Create a function to start the quiz questions and timer upon clicking the start button
         function quizStart() {
             //start button starts timer
             countdown = setInterval(timer, 1000);
-            //start button starts quiz
+            //start button displays the first question
             questionsDisplay();
         };
 
-// Create function to allow user to input their answer.
-function inputAnswer(){
-    
-    if(choiceOne.clicked==true) {
-    // e = choiceOne.innerHTML = questions[i].choices[0];
-        console.log(choiceOne);          
+        for (i = 0; i < btnChoices.length; i++) {
+            // console.log(btnChoices);
+        if(btnChoices.clicked===0){
+        // choiceOne.addEventListener("click", console.log(btnChoices[0]));
+        // console.log(btnChoices[i]);
+        }
     }
-    
-}
-    
-// };
+        
 
-// Create function to check user's answer.
-function checkAnswer(e){
-    console.log(e);
+// Create function to check user's answer. We pass two values to the funciton. The first is the answer the second is it's position in the array.
+function checkAnswer(e, f){
+    // console.log(e, f);
+    if(f === questions[i].correct){
+        answer.innerHTML = "Correct!";
+    }
+    else if (questions.indexOf(f) !== questions[i].correct){
+        answer.innerHTML = "Incorrect!";
+        //should remove a 10 second penalty from the timer
+        timeLeft -10; 
+    }
+    setInterval(nextQuestion, 2000);
 };
 // Create function to move on to the next question.
 function nextQuestion(){
@@ -92,13 +105,13 @@ var questions = [
 },
     {
     title: "A very useful tool used during development and debugging for printing content to the debugger is:__________)",
-    choices: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"],
+    choices: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log()"],
     correct: 3,
 },
 ];
 
 function questionsDisplay(){
-    questionTitle.innerHTML = questions[i].title;
+    questionsTitle.innerHTML = questions[i].title;
     choiceOne.innerHTML = questions[i].choices[0];
     choiceTwo.innerHTML = questions[i].choices[1];
     choiceThree.innerHTML = questions[i].choices[2];
@@ -107,8 +120,23 @@ function questionsDisplay(){
 
 // Event Listeners Library
 startButton.addEventListener("click", quizStart);
+
 // submitButton.addEventListener("click", nextQuestion);
-choiceOne.addEventListener("click", inputAnswer);
-choiceTwo.addEventListener("click", inputAnswer);
-choiceThree.addEventListener("click", inputAnswer);
-choiceFour.addEventListener("click", inputAnswer);
+
+    // fixed button event listeners which were firing immediately by wrapping the checkAnswer function in a separate anonymous function
+        choiceOne.addEventListener("click", function(){
+            checkAnswer(choiceOne.innerHTML = questions[i].choices[0], 0);
+        });
+        choiceTwo.addEventListener("click", function(){
+            checkAnswer(choiceTwo.innerHTML = questions[i].choices[1], 1);
+        });
+        choiceThree.addEventListener("click", function(){
+            checkAnswer(choiceThree.innerHTML = questions[i].choices[2], 2);
+        });
+        choiceFour.addEventListener("click", function(){
+            checkAnswer(choiceFour.innerHTML = questions[i].choices[3], 3);
+        });
+
+// choiceTwo.addEventListener("click", inputAnswer);
+// choiceThree.addEventListener("click", inputAnswer);
+// choiceFour.addEventListener("click", inputAnswer);

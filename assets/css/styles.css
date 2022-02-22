@@ -1,3 +1,22 @@
 #highScore a {
     text-decoration: none;
 }
+header {
+    display: flex;
+    justify-content: space-between;
+}
+main {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+main p {
+    font-size: 24px;
+}
+#start {
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
