@@ -13,10 +13,18 @@ main {
 main p {
     font-size: 24px;
 }
-#start {
+#start,
+.btn-choices {
     font-size: 20px;
     background-color: blue;
     color: white;
     padding: 5px 10px;
     border-radius: 10px;
+}
+#completed {
+    display: none;
+}
+
+.questions {
+    display:none;
 }
