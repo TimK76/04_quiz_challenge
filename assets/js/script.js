@@ -9,6 +9,7 @@ var countdown;
 var correct;
 var highscores;
 var i = 0;
+var initials = document.getElementById("initials");
 var originalDiv = document.getElementById("original-div")
 var originalMessage = document.getElementById("original-title");
 var originalTitle = document.getElementById("original-message");
@@ -18,6 +19,7 @@ var quizStop;
 var score;
 var select;
 var startButton = document.getElementById("start");
+var submit = document.getElementById("submit-initials");
 var timeLeft = 75;
 var timerEl = document.getElementById("timer");
 var lastPage;
@@ -39,7 +41,7 @@ function timer() {
         quizStop();
         // tell the quiz to proceed to the end of the quiz and display score
     } else if (questions <= 0) {
-        document.getElementById("quizFinished");
+        document.getElementById("completed");
     }
 }
 // Create a function to start the quiz questions and timer upon clicking the start button
@@ -85,15 +87,11 @@ function quizStop() {
     clearInterval(countdown);
     //log the time that's left as the score
     score = timeLeft;
-    //move to the All Done page
+    document.getElementById("final-score").innerHTML = "Your Score Is " + score;
     var questions = document.querySelector(".questions");
     questions.style.display = "none";
     var lastPage = document.getElementById("completed");
-    lastPage.style.display = "block"
-}
-//Write a function to display user score on final page and log it and user initials to local storage.
-function gameOver() {
-    var userScore = document.getElementById("final-score");
+    lastPage.style.display = "block";
 }
 
 // Write an array for the quiz with each question being a separate object with questions, answer choices (as nested arrays), and correct answer.
@@ -144,6 +142,11 @@ function questionsDisplay() {
     }
 }
 
+function endGame() {
+    localStorage.setItem("initials", intials);
+    localStorage.setItem("score", score);
+    console.log("submitted");
+}
 // Event Listeners Library
 startButton.addEventListener("click", quizStart);
 
@@ -161,3 +164,6 @@ choiceThree.addEventListener("click", function () {
 choiceFour.addEventListener("click", function () {
     checkAnswer(choiceFour.innerHTML = questions[i].choices[3], 3);
 });
+
+submit.addEventListener("submit", endGame);
+

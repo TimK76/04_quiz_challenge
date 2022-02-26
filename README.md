@@ -14,5 +14,8 @@ https://stackoverflow.com/questions/35667267/addeventlistenerclick-firing-immedi
 
 https://stackoverflow.com/questions/17351853/onclick-event-fires-before-button-clicked-javascript
 
+https://stackoverflow.com/questions/22978243/get-userinput-in-javascript
+
+
 
 
