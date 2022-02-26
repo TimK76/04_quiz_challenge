@@ -1,4 +1,4 @@
-// Global Variables Library
+// ************************Global Variables Library
 var answer = document.getElementById("answer");
 var btnChoices = document.getElementsByClassName("btn-choices");
 var choiceOne = document.getElementById("choice1");
@@ -18,17 +18,14 @@ var quizStop;
 var score;
 var select;
 var startButton = document.getElementById("start");
-// var submitButton = document.getElementById("submit");
 var timeLeft = 75;
 var timerEl = document.getElementById("timer");
 var lastPage;
 
-//make buttons not show up on first page
-
 // Default timer start; Default Timer = 75
 timerEl.innerHTML = "Remaining Time: " + timeLeft;
 
-// Functions library
+//******************* Functions library
 
 // Create a function to count down from 75 seconds. 
 function timer() {
@@ -61,14 +58,11 @@ for (let k = 0; k < btnChoices.length; k++) {
         choiceOne.addEventListener("click");
     }
 }
-
-
 // Create function to check user's answer. We pass two values to the funciton. The first is the answer the second is it's position in the array.
 function checkAnswer(e, f) {
     // console.log(e, f);
     if (f === questions[i].correct) {
         answer.innerHTML = "Correct!";
-        console.log(i);
     }
     else {
         answer.innerHTML = "Incorrect!";
@@ -81,17 +75,10 @@ function checkAnswer(e, f) {
         quizStop();
     }
     else {
-        setTimeout(questionsDisplay, 2000);
+        setTimeout(questionsDisplay, 1000);
     }
 };
-// Create function to move from the questions to the score page.
-function lastQuestion() {
-    // check if we're at the last question
-    // if(i > questions.length) {
-    //     quizStop()
-    //     timeleft = score;
 
-};
 // Create function to stop the quiz.
 function quizStop() {
     //stop timer
@@ -140,15 +127,17 @@ var questions = [
 
 function questionsDisplay() {
     if (questions[i]) {
-        
-        answer.innerTHML = "";
-
+        questionsTitle.innerHTML = " ";
         questionsTitle.innerHTML = questions[i].title;
-        choiceOne.innerHTML = questions[i].choices[0];
+        choiceOne.innerHTML = " ";
+        choiceOne.innerHTML = questions[i].choices[0]
+        choiceTwo.innerHTML = " ";
         choiceTwo.innerHTML = questions[i].choices[1];
+        choiceThree.innerHTML = " ";
         choiceThree.innerHTML = questions[i].choices[2];
+        choiceFour.innerHTML = " ";
         choiceFour.innerHTML = questions[i].choices[3];
-
+        answer.innerHTML = " ";
     }
     else {
         quizStop()
@@ -157,8 +146,6 @@ function questionsDisplay() {
 
 // Event Listeners Library
 startButton.addEventListener("click", quizStart);
-
-// submitButton.addEventListener("click", nextQuestion);
 
 // fixed button event listeners which were firing immediately by wrapping the checkAnswer function in a separate anonymous function
 choiceOne.addEventListener("click", function () {
