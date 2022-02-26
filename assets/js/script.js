@@ -81,7 +81,7 @@ function checkAnswer(e, f) {
         quizStop();
     }
     else {
-        questionsDisplay();
+        setTimeout(questionsDisplay, 2000);
     }
 };
 // Create function to move from the questions to the score page.
@@ -140,6 +140,9 @@ var questions = [
 
 function questionsDisplay() {
     if (questions[i]) {
+        
+        answer.innerTHML = "";
+
         questionsTitle.innerHTML = questions[i].title;
         choiceOne.innerHTML = questions[i].choices[0];
         choiceTwo.innerHTML = questions[i].choices[1];
