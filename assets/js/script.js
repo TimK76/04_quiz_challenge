@@ -143,10 +143,27 @@ function questionsDisplay() {
 }
 
 function endGame() {
-    localStorage.setItem("initials", intials);
+    localStorage.setItem("initials", initials.value);
     localStorage.setItem("score", score);
     console.log("submitted");
 }
+
+function rank() {
+    // get scores from local storage
+
+    // put scores into an array
+
+    // get the array length
+
+    // if array is less than 10 push values into array.
+    
+    // if array is longer than 10 select the top 10 scores.
+
+    // splice the array
+
+    // sort scores from high to low
+}
+
 // Event Listeners Library
 startButton.addEventListener("click", quizStart);
 
@@ -165,5 +182,14 @@ choiceFour.addEventListener("click", function () {
     checkAnswer(choiceFour.innerHTML = questions[i].choices[3], 3);
 });
 
-submit.addEventListener("submit", endGame);
+submit.addEventListener("click", function(){endGame();});
 
+// High Scores Page Variables and Functions not already created.
+
+// Why is local storage overwriting the scores rather than saving multiple scores?
+
+// ** Get the user initials and score from local storage and put it in the unordered list ("rank").
+
+// ** Sort the scores in descending order.
+
+// ** If there are more than 10 scores remove the lowest score.

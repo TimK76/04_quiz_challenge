@@ -28,3 +28,14 @@ main p {
 .questions {
     display:none;
 }
+
+.button {
+    font-size: 20px;
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.btn-choices:hover, .button:hover {
+    background-color: blueviolet;
+}
