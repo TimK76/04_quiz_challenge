@@ -7,7 +7,7 @@ var choiceThree = document.getElementById("choice3");
 var choiceFour = document.getElementById("choice4");
 var countdown;
 var correct;
-var highscores;
+var highscores=[];
 var i = 0;
 var initials = document.getElementById("initials");
 var originalDiv = document.getElementById("original-div")
@@ -23,9 +23,9 @@ var submit = document.getElementById("submit-initials");
 var timeLeft = 75;
 var timerEl = document.getElementById("timer");
 var lastPage;
+console.log(window.location.href);
 
 // Default timer start; Default Timer = 75
-timerEl.innerHTML = "Remaining Time: " + timeLeft;
 
 //******************* Functions library
 
@@ -47,13 +47,14 @@ function timer() {
 // Create a function to start the quiz questions and timer upon clicking the start button
 function quizStart() {
     var startingPage = document.getElementById("original-div");
+    timerEl.innerHTML = "Remaining Time: " + timeLeft;
     startingPage.style.display = "none";
     document.querySelector(".questions").style.display = "block";
     //start button starts timer
     countdown = setInterval(timer, 1000);
     //start button displays the first question
     questionsDisplay();
-};
+}; 
 
 for (let k = 0; k < btnChoices.length; k++) {
     if (btnChoices.clicked === 0) {
@@ -142,27 +143,28 @@ function questionsDisplay() {
     }
 }
 
-function endGame() {
-    localStorage.setItem("initials", initials.value);
-    localStorage.setItem("score", score);
-    console.log("submitted");
+function endGame(e) {
+    e.preventDefault()
+    var details={
+        initials:initials.value,
+        score:score
+    }
+    console.log(details);
+    highscores.push(details);
+    console.log(highscores);
+    
+    
+    localStorage.setItem("endGameData", JSON.stringify(highscores));
 }
-
-function rank() {
-    // get scores from local storage
-
-    // put scores into an array
-
     // get the array length
 
-    // if array is less than 10 push values into array.
+    // if array is less than 10 push values into array,
     
     // if array is longer than 10 select the top 10 scores.
 
     // splice the array
 
     // sort scores from high to low
-}
 
 // Event Listeners Library
 startButton.addEventListener("click", quizStart);
@@ -182,7 +184,7 @@ choiceFour.addEventListener("click", function () {
     checkAnswer(choiceFour.innerHTML = questions[i].choices[3], 3);
 });
 
-submit.addEventListener("click", function(){endGame();});
+submit.addEventListener("click", function(e){endGame(e);});
 
 // High Scores Page Variables and Functions not already created.
 
